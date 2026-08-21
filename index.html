@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Miami Dentist | Heallusa — Find a Dentist Near You in Miami, FL</title>
 <meta name="description" content="Find a top-rated dentist near you in Miami, FL. Heallusa connects Miami residents with trusted dental clinics across Miami, Coral Gables, Hialeah & Aventura. Emergency care, implants, Invisalign & whitening. Call now.">
-<meta name="keywords" content="dentist Miami FL, dentist near me Miami, Miami emergency dentist, dental implants Miami, best dentist Miami, family dentist Miami, teeth whitening Miami, orthodontist Miami, pediatric dentist Miami, dentist Coral Gables, dentist Hialeah, dentist Aventura, dentist Brickell, dental clinic Miami Florida, dentist South Beach">
+<meta name="keywords" content="dentist Miami FL, dentist near me Miami, Miami emergency dentist, dental implants Miami, best dentist Miami, family dentist Miami, teeth whitening Miami, orthodontist Miami, pediatric dentist Miami, dentist Coral Gables, dentist Hialeah, dentist Aventura, dentist Brickell, dental clinic Miami Florida, dentist South Beach, 24 hour emergency dentist Miami, walk-in dentist Miami, affordable dentist Miami no insurance, dentist that accepts Medicaid Miami, dentist that accepts Medicare Miami, cheap dentist near me Miami, dentist open on Saturday Miami, dentist open now Miami, root canal Miami, wisdom teeth removal Miami, dentures Miami, All-on-4 dental implants Miami, veneers Miami cost, Invisalign Miami cost, Spanish speaking dentist near me, dentist Little Havana, dentist Doral, dentist Kendall, dentist Wynwood, dentist Coconut Grove, dentist Homestead, dentist Miami-Dade County, urgent dental care Miami, same day dentist appointment Miami, tooth extraction Miami, dental crown Miami, sedation dentist Miami, cosmetic dentist Miami, dentist near me open today">
 <meta name="theme-color" content="#0a7bc4">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Miami Dentist Finder — Heallusa Miami Dental Network">
@@ -34,12 +34,7 @@
     "addressCountry": "US"
   },
   "openingHours": ["Mo-Fr 07:00-19:00", "Sa 10:00-17:00"],
-  "priceRange": "Free Service",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "780"
-  }
+  "priceRange": "Free Service"
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,7 +54,12 @@
   --light-gray:#d0e8f5;
 }
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;color:var(--dark);line-height:1.6;background:#fff}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){
+  .ticker-move,.fab-inner,.reveal-init{animation:none!important;transition:none!important}
+}
 
 /* TICKER — Miami vibe */
 .ticker{background:linear-gradient(90deg,var(--miami-dark),var(--blue-dark),var(--miami-dark));color:#fff;padding:11px 0;overflow:hidden;position:sticky;top:0;z-index:100}
@@ -67,6 +67,8 @@ body{font-family:'DM Sans',sans-serif;color:var(--dark);line-height:1.6;backgrou
 .ticker-move{display:flex;gap:48px;animation:scroll 24s linear infinite;white-space:nowrap}
 .ticker-move span{font-size:13px;font-weight:600;letter-spacing:.3px}
 .ticker-move span em{color:#ffd700;font-style:normal}
+.ticker{box-shadow:0 2px 14px rgba(0,0,0,.18)}
+.ticker:hover .ticker-move{animation-play-state:paused}
 @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 .nav{background:#fff;padding:14px 0;border-bottom:1px solid var(--light-gray);position:sticky;top:44px;z-index:99;box-shadow:0 2px 12px rgba(0,0,0,.06)}
@@ -79,12 +81,14 @@ body{font-family:'DM Sans',sans-serif;color:var(--dark);line-height:1.6;backgrou
 .menu{display:flex;gap:20px;align-items:center}
 .menu a{color:var(--dark);text-decoration:none;font-weight:600;font-size:15px;transition:.2s}
 .menu a:hover{color:var(--blue)}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:var(--blue);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;transition:.2s;border:none;cursor:pointer;font-size:15px}
-.btn:hover{background:var(--blue-dark);transform:translateY(-1px)}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:var(--blue);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;transition:.2s;border:none;cursor:pointer;font-size:15px}
+.btn::after{content:'';position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .6s ease}
+.btn:hover::after{left:130%}
+.btn:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 8px 22px rgba(10,123,196,.35)}
 .btn-gold{background:var(--gold);color:var(--dark)}
-.btn-gold:hover{background:#b8922e}
+.btn-gold:hover{background:#b8922e;box-shadow:0 8px 22px rgba(201,168,76,.45)}
 .btn-outline{background:transparent;border:2px solid rgba(255,255,255,.8);color:#fff}
-.btn-outline:hover{background:rgba(255,255,255,.15)}
+.btn-outline:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
 .nav-phone-box{display:inline-flex;align-items:center;gap:7px;background:#f5c518;color:#0d1f17;font-weight:800;font-size:14px;padding:8px 16px;border-radius:7px;text-decoration:none;letter-spacing:.2px;box-shadow:0 2px 8px rgba(245,197,24,.4);transition:.2s}
 .nav-phone-box:hover{background:#e0b000}
 .nav-phone-desktop{display:inline-flex}
@@ -129,7 +133,9 @@ body{font-family:'DM Sans',sans-serif;color:var(--dark);line-height:1.6;backgrou
 .grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
 .card{background:#fff;padding:30px;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,.07);transition:.3s;border:1px solid var(--light-gray)}
 .card:hover{box-shadow:0 10px 30px rgba(0,0,0,.12);transform:translateY(-4px)}
-.card-icon{font-size:36px;margin-bottom:16px}
+.card:hover .card-icon{animation:iconPop .5s ease}
+.card-icon{font-size:36px;margin-bottom:16px;transition:.2s}
+@keyframes iconPop{0%{transform:scale(1) rotate(0)}35%{transform:scale(1.25) rotate(-8deg)}70%{transform:scale(1.1) rotate(4deg)}100%{transform:scale(1) rotate(0)}}
 .card h3{font-family:'Playfair Display',serif;font-size:20px;margin-bottom:10px;color:var(--blue-dark)}
 .card p{color:var(--gray);font-size:15px;line-height:1.7}
 
@@ -137,8 +143,9 @@ body{font-family:'DM Sans',sans-serif;color:var(--dark);line-height:1.6;backgrou
 .service-accent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
 .service-accent{background:#fff;border-radius:14px;border:1px solid var(--light-gray);padding:0;overflow:hidden;transition:.3s}
 .service-accent:hover{box-shadow:0 8px 28px rgba(0,0,0,.1);transform:translateY(-3px)}
+.service-accent:hover .icon{animation:iconPop .5s ease}
 .service-accent-top{background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:18px 22px;display:flex;align-items:center;gap:12px}
-.service-accent-top .icon{font-size:26px}
+.service-accent-top .icon{font-size:26px;transition:.2s}
 .service-accent-top h3{font-size:16px;font-weight:700;color:#fff}
 .service-accent-body{padding:16px 22px}
 .service-accent-body p{font-size:14px;color:var(--gray);line-height:1.7}
@@ -219,6 +226,29 @@ body{font-family:'DM Sans',sans-serif;color:var(--dark);line-height:1.6;backgrou
   .hero h1{font-size:26px}
   .hero-phone-box a{font-size:24px}
 }
+
+/* SCROLL REVEAL */
+.reveal-init{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.reveal-init.in-view{opacity:1;transform:translateY(0)}
+
+/* RATINGS / TRUST BAR */
+.trust-bar{background:#fff;border-bottom:1px solid var(--light-gray);padding:16px 0}
+.trust-inner{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 30px}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--blue-dark);white-space:nowrap}
+.trust-item .stars{color:#f5c518;letter-spacing:1px}
+.trust-divider{width:1px;height:18px;background:var(--light-gray)}
+@media(max-width:768px){
+  .trust-inner{gap:10px 16px}
+  .trust-divider{display:none}
+  .trust-item{font-size:12px}
+}
+
+/* STICKY MOBILE CTA BAR */
+.mobile-cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:9998;display:none;background:linear-gradient(90deg,var(--miami-dark),var(--blue-dark));box-shadow:0 -6px 24px rgba(0,0,0,.25);padding:12px 16px;align-items:center;gap:12px;transform:translateY(100%);transition:transform .4s ease}
+.mobile-cta-bar.show{transform:translateY(0)}
+.mobile-cta-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:#f5c518;color:#0d1f17;font-weight:800;font-size:15px;padding:12px 10px;border-radius:9px;text-decoration:none}
+.mobile-cta-bar .mc-text{color:#fff;font-size:11px;opacity:.85;flex-shrink:0;line-height:1.3;max-width:80px}
+@media(max-width:768px){.mobile-cta-bar{display:flex}}
 </style>
 </head>
 <body>
@@ -323,6 +353,17 @@ body{font-family:'DM Sans',sans-serif;color:var(--dark);line-height:1.6;backgrou
         <div class="m-label">Cost to Use Heallusa</div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- TRUST / RATINGS BAR -->
+<div class="trust-bar">
+  <div class="wrap trust-inner">
+    <span class="trust-item">🛡️ Verified &amp; Licensed Miami Clinics Only</span>
+    <span class="trust-divider"></span>
+    <span class="trust-item">💳 Delta Dental · Cigna · Aetna · Humana · MetLife</span>
+    <span class="trust-divider"></span>
+    <span class="trust-item">🗣️ English &amp; Spanish Coordinators</span>
   </div>
 </div>
 
@@ -517,6 +558,58 @@ body{font-family:'DM Sans',sans-serif;color:var(--dark);line-height:1.6;backgrou
         <div class="n-desc">South Miami-Dade</div>
       </div>
       <div class="neighborhood-card">
+        <div class="n-name">📍 Miami Beach</div>
+        <div class="n-desc">Barrier island, oceanfront</div>
+      </div>
+      <div class="neighborhood-card">
+        <div class="n-name">📍 Miami Gardens</div>
+        <div class="n-desc">North-Central Miami-Dade</div>
+      </div>
+      <div class="neighborhood-card">
+        <div class="n-name">📍 North Miami</div>
+        <div class="n-desc">Northeast Miami-Dade</div>
+      </div>
+      <div class="neighborhood-card">
+        <div class="n-name">📍 Sunny Isles Beach</div>
+        <div class="n-desc">Oceanfront, near Aventura</div>
+      </div>
+      <div class="neighborhood-card">
+        <div class="n-name">📍 Bal Harbour</div>
+        <div class="n-desc">Upscale coastal community</div>
+      </div>
+      <div class="neighborhood-card">
+        <div class="n-name">📍 Pinecrest</div>
+        <div class="n-desc">South Miami-Dade suburb</div>
+      </div>
+      <div class="neighborhood-card">
+        <div class="n-name">📍 Palmetto Bay</div>
+        <div class="n-desc">South Miami-Dade</div>
+      </div>
+      <div class="neighborhood-card">
+        <div class="n-name">📍 South Miami</div>
+        <div class="n-desc">Near US-1 &amp; Sunset Dr</div>
+      </div>
+      <div class="neighborhood-card">
+        <div class="n-name">📍 Miami Lakes</div>
+        <div class="n-desc">Northwest Miami-Dade</div>
+      </div>
+      <div class="neighborhood-card">
+        <div class="n-name">📍 Sweetwater</div>
+        <div class="n-desc">Near FIU</div>
+      </div>
+      <div class="neighborhood-card">
+        <div class="n-name">📍 Cutler Bay</div>
+        <div class="n-desc">Southernmost Miami-Dade</div>
+      </div>
+      <div class="neighborhood-card">
+        <div class="n-name">📍 Key Biscayne</div>
+        <div class="n-desc">Island, Rickenbacker Causeway</div>
+      </div>
+      <div class="neighborhood-card">
+        <div class="n-name">📍 Westchester</div>
+        <div class="n-desc">West Miami-Dade</div>
+      </div>
+      <div class="neighborhood-card">
         <div class="n-name">📍 + All of Miami-Dade</div>
         <div class="n-desc">Every zip code covered</div>
       </div>
@@ -585,6 +678,16 @@ body{font-family:'DM Sans',sans-serif;color:var(--dark);line-height:1.6;backgrou
         <h3>Built for Miami</h3>
         <p>We know the difference between a Brickell commute and a Kendall drive — and match you to the clinics that actually make sense for where you are.</p>
       </div>
+      <div class="card">
+        <div class="card-icon">🗺️</div>
+        <h3>Hyper-Local Matching</h3>
+        <p>From Key Biscayne to Homestead, we factor in traffic patterns, parking, and public transit access — not just straight-line distance — when picking your clinic.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌙</div>
+        <h3>Evenings &amp; Weekends Covered</h3>
+        <p>Our Miami network includes clinics open past standard business hours and on Saturdays, for patients who can't take time off during the week.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -625,6 +728,32 @@ body{font-family:'DM Sans',sans-serif;color:var(--dark);line-height:1.6;backgrou
     <h3>Dental Insurance in Miami — A Complex Landscape</h3>
     <p>Miami's insurance landscape is among the most complex in the United States, reflecting the city's mix of corporate employees, international residents, self-employed business owners, uninsured workers, and a large Medicare-eligible senior population. Our network accepts Delta Dental, Cigna, Aetna, Humana, MetLife, United Healthcare, Guardian, and Ameritas, along with Florida Medicaid dental (for eligible adults and children) and Medicare Advantage plans with dental riders. For uninsured patients — a significant share of Miami-Dade's workforce — we match with clinics offering in-house membership plans and cash-pay pricing. Tell us your coverage when you call.</p>
 
+    <h3>Same-Day, Walk-In &amp; After-Hours Dental Care in Miami</h3>
+    <p>Searching for a <strong>walk-in dentist near me</strong> or a <strong>24-hour emergency dentist in Miami</strong> at 9pm on a Saturday is one of the most common ways people find us. Our network includes clinics with early morning, evening, and weekend hours across Miami-Dade, so a cracked tooth, lost filling, or sudden abscess doesn't have to wait until Monday. We also handle routine procedures on a fast turnaround — <strong>root canals</strong>, <strong>wisdom teeth removal</strong>, <strong>tooth extractions</strong>, and same-day dental crowns — matching you with a Miami clinic that has real same-day or next-day openings, not just a listing that looks available online.</p>
+
+    <h3>Affordable Dental Care Without Insurance in Miami</h3>
+    <p>Not everyone in Miami has dental coverage, and cost is often the first question we're asked. We work with clinics offering transparent cash-pay pricing, in-house membership plans, and payment arrangements for patients searching for an <strong>affordable dentist near me with no insurance</strong>. Whether you need a simple cleaning, dentures, or a full smile makeover with veneers, tell our coordinator your budget and we'll point you toward Miami clinics that fit it — no surprise billing, no pressure.</p>
+
+    <h3>Every City &amp; Municipality in Miami-Dade County</h3>
+    <p>Miami-Dade is home to dozens of incorporated cities and unincorporated communities, and our dental network reaches all of them. Whether you're searching for a dentist in Miami, Miami Beach, Hialeah, Coral Gables, Doral, Aventura, Homestead, or a smaller municipality, we have a match nearby:</p>
+    <ul>
+      <li><strong>City of Miami</strong> — Downtown, Brickell, Little Havana, Wynwood, Edgewater, Coconut Grove</li>
+      <li><strong>Miami Beach &amp; South Beach</strong> — including North Beach and Mid-Beach</li>
+      <li><strong>Hialeah &amp; Hialeah Gardens</strong> — Miami-Dade's second-largest city</li>
+      <li><strong>Coral Gables</strong> — the "City Beautiful," near University of Miami</li>
+      <li><strong>Doral</strong> — near Miami International Airport (MIA)</li>
+      <li><strong>Aventura, Sunny Isles Beach &amp; Bal Harbour</strong> — North Miami-Dade coastal communities</li>
+      <li><strong>North Miami &amp; North Miami Beach</strong> — Northeast Miami-Dade</li>
+      <li><strong>Miami Gardens &amp; Opa-locka</strong> — North-Central Miami-Dade</li>
+      <li><strong>Miami Lakes &amp; Hialeah Gardens</strong> — Northwest Miami-Dade</li>
+      <li><strong>Sweetwater &amp; Fontainebleau</strong> — near Florida International University (FIU)</li>
+      <li><strong>Kendall, West Kendall &amp; The Hammocks</strong> — Southwest Miami-Dade</li>
+      <li><strong>Pinecrest, Palmetto Bay &amp; South Miami</strong> — established South Miami-Dade suburbs</li>
+      <li><strong>Cutler Bay &amp; Homestead</strong> — southernmost Miami-Dade County</li>
+      <li><strong>Key Biscayne</strong> — island community across the Rickenbacker Causeway</li>
+      <li><strong>Westchester &amp; West Miami</strong> — West-Central Miami-Dade</li>
+    </ul>
+
   </div>
 </section>
 
@@ -649,6 +778,30 @@ body{font-family:'DM Sans',sans-serif;color:var(--dark);line-height:1.6;backgrou
       <div class="card">
         <h3>I'm looking for a cosmetic dentist in Brickell for whitening before an event — can you find one this week?</h3>
         <p>Absolutely. Miami cosmetic dental requests are our most frequent non-emergency referrals. We have Brickell and Downtown Miami clinics in our network with same-week whitening and veneer consultation availability.</p>
+      </div>
+      <div class="card">
+        <h3>Do I need insurance to use Heallusa, or is there an affordable option in Miami?</h3>
+        <p>No insurance needed. We match uninsured patients with Miami clinics offering transparent cash-pay pricing and in-house membership plans, so you know the cost before you book.</p>
+      </div>
+      <div class="card">
+        <h3>Does Heallusa charge anything to find me a dentist?</h3>
+        <p>Never. Our referral service is 100% free to Miami residents and visitors — always has been. The clinic only bills you for the treatment you actually receive.</p>
+      </div>
+      <div class="card">
+        <h3>Can you find a Miami dentist who accepts Medicaid or Medicare?</h3>
+        <p>Yes. We have clinics across Miami-Dade that accept Florida Medicaid dental for eligible adults and children, as well as Medicare Advantage plans with dental riders — common in Aventura and North Miami-Dade.</p>
+      </div>
+      <div class="card">
+        <h3>I need a walk-in dentist near me in Miami right now — is that possible?</h3>
+        <p>Often, yes. Tell our coordinator your neighborhood and we'll check live openings at nearby clinics for same-day walk-in slots, not just a directory listing that may already be full.</p>
+      </div>
+      <div class="card">
+        <h3>How long does it take to get matched with a dentist?</h3>
+        <p>Most Miami callers are matched within minutes on the same call — we check live availability while you're on the phone with us, so you leave the call with an actual appointment.</p>
+      </div>
+      <div class="card">
+        <h3>Do you have pediatric or family dentists for kids in Hialeah or Doral?</h3>
+        <p>Yes. We have a strong roster of bilingual family and pediatric dental practices throughout Miami-Dade's western suburbs, many with Saturday hours for working families.</p>
       </div>
     </div>
 
@@ -736,6 +889,12 @@ body{font-family:'DM Sans',sans-serif;color:var(--dark);line-height:1.6;backgrou
 
 <a href="tel:+18448330097" class="fab" aria-label="Call Heallusa Miami now"><div class="fab-inner">📞</div></a>
 
+<!-- STICKY MOBILE CTA BAR -->
+<div class="mobile-cta-bar" id="mobileCtaBar">
+  <span class="mc-text">Free &amp; fast Miami dentist match</span>
+  <a href="tel:+18448330097">📞 Call (844) 833-0097</a>
+</div>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -772,6 +931,54 @@ body{font-family:'DM Sans',sans-serif;color:var(--dark);line-height:1.6;backgrou
         "@type": "Answer",
         "text": "Absolutely. Miami cosmetic dental requests are our most frequent non-emergency referrals. We have Brickell and Downtown Miami clinics with same-week whitening and veneer consultation availability."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need insurance to use Heallusa, or is there an affordable option in Miami?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No insurance is needed. We match uninsured patients with Miami clinics offering transparent cash-pay pricing and in-house membership plans, so the cost is known before booking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Heallusa charge anything to find me a dentist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The referral service is free to Miami residents and visitors. The clinic only bills for the treatment actually received."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you find a Miami dentist who accepts Medicaid or Medicare?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. There are clinics across Miami-Dade that accept Florida Medicaid dental for eligible adults and children, as well as Medicare Advantage plans with dental riders, common in Aventura and North Miami-Dade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I need a walk-in dentist near me in Miami right now — is that possible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often, yes. Coordinators check live openings at nearby Miami clinics for same-day walk-in slots based on the caller's neighborhood."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to get matched with a dentist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most Miami callers are matched within minutes on the same call, since availability is checked live while the caller is on the phone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you have pediatric or family dentists for kids in Hialeah or Doral?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. There is a strong roster of bilingual family and pediatric dental practices throughout Miami-Dade's western suburbs, many with Saturday hours."
+      }
     }
   ]
 }
@@ -786,6 +993,40 @@ document.addEventListener('click',e=>{
   const h=document.getElementById('ham');
   if(window.innerWidth<=768&&!m.contains(e.target)&&!h.contains(e.target)){
     m.classList.remove('show');
+  }
+});
+
+/* SCROLL REVEAL ANIMATIONS */
+document.addEventListener('DOMContentLoaded',()=>{
+  const revealEls=document.querySelectorAll('.card, .service-accent, .neighborhood-card, .step, .miami-item');
+  revealEls.forEach((el,i)=>{
+    el.classList.add('reveal-init');
+    el.style.transitionDelay=((i%6)*0.06)+'s';
+  });
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.15});
+    revealEls.forEach(el=>io.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add('in-view'));
+  }
+
+  /* STICKY MOBILE CTA — show after scrolling past hero */
+  const mcb=document.getElementById('mobileCtaBar');
+  const hero=document.querySelector('.hero');
+  if(mcb&&hero&&'IntersectionObserver' in window){
+    const heroObs=new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        mcb.classList.toggle('show',!entry.isIntersecting);
+      });
+    },{threshold:0});
+    heroObs.observe(hero);
   }
 });
 </script>
